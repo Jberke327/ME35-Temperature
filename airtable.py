@@ -8,7 +8,7 @@ apiKey = secrets.AirtableAPIKey
 color = secrets.AirtableColorID
 table = "Tasks"
 
-baseUrl = "https://api.airtable.com/v0/%s/%s" % (ID, table)
+baseUrl = "" % (ID, table)
 headers = {"Authorization": f"Bearer {apiKey}",}
 
 #Connect to Airtable API and get data, Code taken from API example code
