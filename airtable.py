@@ -3,21 +3,22 @@ import secrets
 import urequests as requests
 
 
-baseId = secrets.AirtableBaseID
+ID = secrets.AirtableBaseID
 apiKey = secrets.AirtableAPIKey
-colorID = secrets.AirtableColorID
-tableName = "Tasks"
+color = secrets.AirtableColorID
+table = "Tasks"
 
-baseUrl = "https://api.airtable.com/v0/%s/%s" % (baseId, tableName)
+baseUrl = "https://api.airtable.com/v0/%s/%s" % (ID, table)
 headers = {"Authorization": f"Bearer {apiKey}",}
 
+#Connect to Airtable API and get data, Code taken from API example code
 def getColor():
     try:
         response = requests.get(baseUrl, headers=headers)
         data = response.json()
         records = data.get('records', [])
         for record in records:
-            if record["id"] == colorID:
+            if record["id"] == color:
                 print(record["fields"])
                 return record["fields"]["Value"]
         return None
