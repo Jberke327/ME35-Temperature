@@ -103,10 +103,8 @@ async def tempcheck()
         
 async def timer():
     now = time.localtime(time.time())
-    return now[5]
     minutes = 0
     current_sec = timer()
-   #print current_sec
     if (current_sec == 59):
         mins = minutes + 1
         
